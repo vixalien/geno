@@ -7,10 +7,24 @@ import { AttributeIter } from "./attributeiter.ts";
 import { info_type_to_string, InfoType } from "./infotype.ts";
 
 export class BaseInfo extends PointerObj {
-  // g_info_new
+  new(
+    type: InfoType,
+    container: BaseInfo,
+    typelib: TypeLib,
+    offset: number,
+  ) {
+    const ptr = c_girepository.symbols.g_info_new(
+      type,
+      container.ptr,
+      typelib.ptr,
+      offset,
+    );
+    this.__unsafeSetPointer(ptr);
+  }
+
   ref() {
     const ptr = c_girepository.symbols.g_base_info_ref(this.ptr);
-    return new BaseInfo(ptr);
+    return BaseInfo.fromPointer(ptr);
   }
 
   unref() {
@@ -28,7 +42,7 @@ export class BaseInfo extends PointerObj {
   get typelib() {
     const ptr = c_girepository.symbols.g_base_info_get_typelib(this.ptr);
 
-    return new TypeLib(ptr);
+    return TypeLib.fromPointer(ptr);
   }
 
   get namespace() {
@@ -74,7 +88,7 @@ export class BaseInfo extends PointerObj {
   get_container() {
     const ptr = c_girepository.symbols.g_base_info_get_container(this.ptr);
 
-    return new BaseInfo(ptr);
+    return BaseInfo.fromPointer(ptr);
   }
 
   is_deprecated() {

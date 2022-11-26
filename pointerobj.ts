@@ -1,7 +1,24 @@
 export class PointerObj {
-  ptr: Deno.PointerValue;
+  #_ptr!: Deno.PointerValue;
 
-  constructor(pointer: Deno.PointerValue) {
-    this.ptr = pointer;
+  constructor() {
+  }
+
+  static fromPointer<T extends PointerObj>(
+    // deno-lint-ignore no-explicit-any
+    this: new (...args: any[]) => T,
+    pointer: Deno.PointerValue,
+  ) {
+    const obj = new this();
+    obj.__unsafeSetPointer(pointer);
+    return obj;
+  }
+
+  get ptr() {
+    return this.#_ptr;
+  }
+
+  __unsafeSetPointer(pointer: Deno.PointerValue) {
+    this.#_ptr = pointer;
   }
 }

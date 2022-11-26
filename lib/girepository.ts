@@ -54,6 +54,19 @@ export const c_girepository = Deno.dlopen("/usr/lib/libgirepository-1.0.so", {
   },
 
   // BaseInfo
+  g_info_new: {
+    parameters: [
+      /* InfoType */
+      "usize",
+      /* BaseInfo */
+      "pointer",
+      /* TypeLib */
+      "pointer",
+      "u32",
+    ],
+    /* BaseInfo */
+    result: "pointer",
+  },
   g_base_info_ref: {
     parameters: [
       /* BaseInfo */

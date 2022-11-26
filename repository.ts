@@ -7,10 +7,6 @@ import { GError } from "./gerror.ts";
 import { c_girepository } from "./lib/girepository.ts";
 
 export class Repository extends PointerObj {
-  constructor(pointer: Deno.PointerValue) {
-    super(pointer);
-  }
-
   require(namespace: string, version: string) {
     const error = Deno.UnsafePointer.of(new ArrayBuffer(0));
 
@@ -29,7 +25,7 @@ export class Repository extends PointerObj {
       throw gerror.toError();
     }
 
-    return new TypeLib(type_lib);
+    return TypeLib.fromPointer(type_lib);
   }
 
   find_by_name(namespace: string, name: string) {
@@ -39,7 +35,7 @@ export class Repository extends PointerObj {
       strToPointer(name),
     );
 
-    return new BaseInfo(base_info);
+    return BaseInfo.fromPointer(base_info);
   }
 
   get_n_infos(namespace: string) {
@@ -60,11 +56,11 @@ export class Repository extends PointerObj {
 
     if (base_info == 0) return null;
 
-    return new BaseInfo(base_info);
+    return BaseInfo.fromPointer(base_info);
   }
 
   static get_default() {
-    return new this(
+    return this.fromPointer(
       c_girepository.symbols.g_irepository_get_default(),
     );
   }
