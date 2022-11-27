@@ -1,5 +1,4 @@
 import { c_girepository } from "../lib/girepository.ts";
-import { pointerToStr } from "../util.ts";
 import { Argument } from "./argument.ts";
 import { BaseInfo } from "./base.ts";
 

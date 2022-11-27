@@ -2,7 +2,7 @@ export const c_arg = Deno.dlopen("./native/arg.so", {
   g_argument_new: {
     parameters: [
       /* Argument */
-      "pointer"
+      "pointer",
     ],
     result: "void",
   },
