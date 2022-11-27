@@ -37,7 +37,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_constants(this.ptr);
   }
 
-  get_constant(n: number) {
+  get_constant(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_constant(this.ptr, n);
 
     if (ptr === 0) return null;
@@ -50,7 +50,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_fields(this.ptr);
   }
 
-  get_field(n: number) {
+  get_field(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_field(this.ptr, n);
 
     if (ptr === 0) return null;
@@ -63,7 +63,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_interfaces(this.ptr);
   }
 
-  get_interface(n: number) {
+  get_interface(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_interface(this.ptr, n);
 
     if (ptr === 0) return null;
@@ -76,7 +76,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_methods(this.ptr);
   }
 
-  get_method(n: number) {
+  get_method(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_method(this.ptr, n);
 
     if (ptr === 0) return null;
@@ -116,7 +116,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_properties(this.ptr);
   }
 
-  get_property(n: number) {
+  get_property(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_property(this.ptr, n);
 
     // TODO: return PropertyInfo.fromPointer(ptr);
@@ -127,7 +127,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_signals(this.ptr);
   }
 
-  get_signal(n: number) {
+  get_signal(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_signal(this.ptr, n);
 
     if (ptr === 0) return null;
@@ -152,7 +152,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
     return c_girepository.symbols.g_object_info_get_n_vfuncs(this.ptr);
   }
 
-  get_vfunc(n: number) {
+  get_vfunc(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_vfunc(this.ptr, n);
 
     if (ptr === 0) return null;

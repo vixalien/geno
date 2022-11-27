@@ -16,7 +16,7 @@ export class CallableInfo extends BaseInfo {
     return new Deno.UnsafePointerView(ptr).getInt32();
   }
 
-  get_arg(n: number) {
+  get_arg(n: number | bigint) {
     const ptr = c_girepository.symbols.g_callable_info_get_arg(this.ptr, n);
 
     // TODO: return ArgInfo.fromPointer(ptr)
@@ -86,7 +86,7 @@ export class CallableInfo extends BaseInfo {
     }
   }
 
-  load_arg(n: number) {
+  load_arg(n: number | bigint) {
     const arg = 0;
     c_girepository.symbols.g_callable_info_load_arg(this.ptr, n, arg);
 

@@ -831,5 +831,62 @@ export const c_girepository = Deno.dlopen(
       ],
       result: "isize",
     },
+
+    // EnumInfo
+    g_enum_info_get_n_values: {
+      parameters: [
+        /* EnumInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_enum_info_get_value: {
+      parameters: [
+        /* EnumInfo */
+        "pointer",
+        "isize",
+      ],
+      /* ValueInfo */
+      result: "pointer",
+    },
+    g_enum_info_get_n_methods: {
+      parameters: [
+        /* EnumInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_enum_info_get_method: {
+      parameters: [
+        /* EnumInfo */
+        "pointer",
+        "isize",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_enum_info_get_storage_type: {
+      parameters: [
+        /* EnumInfo */
+        "pointer",
+      ],
+      /* TypeTag */
+      result: "pointer",
+    },
+    g_enum_info_get_error_domain: {
+      parameters: [
+        /* EnumInfo */
+        "pointer",
+      ],
+      /* string */
+      result: "pointer",
+    },
+    g_value_info_get_value: {
+      parameters: [
+        /* ValueInfo */
+        "pointer",
+      ],
+      result: "i64",
+    },
   } as const,
 );

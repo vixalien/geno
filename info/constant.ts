@@ -19,6 +19,6 @@ export class ConstantInfo extends BaseInfo {
     return c_girepository.symbols.g_constant_info_get_value(
       this.ptr,
       value.ptr,
-    ) as number;
+    );
   }
 }
