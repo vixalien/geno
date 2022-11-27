@@ -803,5 +803,33 @@ export const c_girepository = Deno.dlopen(
       /* ObjectInfoGetValueFunction */
       result: "pointer",
     },
+
+    // ConstantInfo
+    g_constant_info_free_value: {
+      parameters: [
+        /* ConstantInfo */
+        "pointer",
+        /* Argument */
+        "pointer",
+      ],
+      result: "void",
+    },
+    g_constant_info_get_type: {
+      parameters: [
+        /* ConstantInfo */
+        "pointer",
+      ],
+      /* TypeInfo */
+      result: "pointer",
+    },
+    g_constant_info_get_value: {
+      parameters: [
+        /* ConstantInfo */
+        "pointer",
+        /* Argument */
+        "pointer",
+      ],
+      result: "isize",
+    },
   } as const,
 );

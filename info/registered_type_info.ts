@@ -1,8 +1,8 @@
-import { PointerObj } from "../pointerobj.ts";
 import { c_girepository } from "../lib/girepository.ts";
 import { pointerToStr } from "../util.ts";
+import { BaseInfo } from "./base.ts";
 
-export class RegisteredTypeInfo extends PointerObj {
+export class RegisteredTypeInfo extends BaseInfo {
   get type_name() {
     const ptr = c_girepository.symbols.g_registered_type_info_get_type_name(
       this.ptr,
