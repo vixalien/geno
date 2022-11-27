@@ -63,10 +63,7 @@ export class ArgInfo extends BaseInfo {
 
   load_type() {
     const type = 0;
-    /* const ptr = */ c_girepository.symbols.g_arg_info_get_scope(
-      this.ptr,
-      type,
-    );
+    /* const ptr = */ c_girepository.symbols.g_arg_info_get_scope(this.ptr);
 
     // TODO: return TypeInfo.fromPointer(ptr)
     return type;
