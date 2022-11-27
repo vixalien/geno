@@ -66,21 +66,21 @@ export class BaseInfo extends PointerObj {
     return new Deno.UnsafePointerView(ptr).getCString();
   }
 
-  foreach(callback: (name: string, value: string) => void) {
+  iterate_attributes(callback: (name: string, value: string) => void) {
     const iter = AttributeIter.generate();
-    const name = strToPointer("");
-    const value = strToPointer("");
+    const name = new BigInt64Array(1);
+    const value = new BigInt64Array(1);
     while (
       c_girepository.symbols.g_base_info_iterate_attributes(
         this.ptr,
         iter.ptr,
-        name,
-        value,
+        Deno.UnsafePointer.of(name),
+        Deno.UnsafePointer.of(value),
       )
     ) {
       callback(
-        pointerToStr(name),
-        pointerToStr(value),
+        pointerToStr(name[0]),
+        pointerToStr(value[0]),
       );
     }
   }

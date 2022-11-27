@@ -4,10 +4,12 @@ import { c_error } from "./lib/structs.ts";
 
 export class GError extends PointerObj {
   constructor(pointer: Deno.PointerValue) {
-    super(pointer);
+    super();
+    this.__unsafeSetPointer(pointer);
   }
 
   get message() {
+    console.log("ptr", this.ptr);
     const ptr = c_error.symbols.g_error_get_message(this.ptr);
 
     if (ptr === 0) return null;
@@ -16,11 +18,7 @@ export class GError extends PointerObj {
   }
 
   get code() {
-    const ptr = c_error.symbols.g_error_get_code();
-
-    if (ptr === 0) return null;
-
-    return new Deno.UnsafePointerView(ptr).getInt32();
+    return c_error.symbols.g_error_get_code(this.ptr);
   }
 
   toError() {

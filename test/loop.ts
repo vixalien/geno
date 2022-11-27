@@ -1,5 +1,5 @@
-import { Repository } from "./repository.ts";
-import { closeAll } from "./lib/close.ts";
+import { Repository } from "../repository.ts";
+import { closeAll } from "../lib/close.ts";
 
 const repo = Repository.get_default();
 repo.require("Gtk", "4.0");

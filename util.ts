@@ -8,3 +8,6 @@ export const strToPointer = (s: string) =>
 
 export const pointerToStr = (ptr: Deno.PointerValue) =>
   new Deno.UnsafePointerView(ptr).getCString();
+
+// reserve 64 bytes of memory and return a pointer to it
+export const reserve = () => Deno.UnsafePointer.of(new BigInt64Array(1));

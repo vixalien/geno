@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/usr/include/**",
                 "/usr/lib/glib-2.0/include/**",
-                "/usr/include/gobject-introspection-1.0"
+                "/usr/include/gobject-introspection-1.0",
+                "/usr/include/glib-2.0"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

@@ -15,7 +15,9 @@ export const c_error = Deno.dlopen("./native/structs.so", {
     result: "pointer",
   },
   gi_attribute_iter_new: {
-    parameters: [],
+    parameters: [
+      "pointer",
+    ],
     /* AttributeIter */
     result: "pointer",
   },
