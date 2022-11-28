@@ -15,7 +15,7 @@ structs
   + GIRegisteredTypeInfo
     + GIEnumInfo
     + GIStructInfo
-    * GIUnionInfo
+    + GIUnionInfo
     + GIObjectInfo
     * GIInterfaceInfo
   + GIArgInfo

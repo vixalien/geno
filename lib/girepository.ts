@@ -970,5 +970,93 @@ export const c_girepository = Deno.dlopen(
       /* FunctionInfo */
       result: "pointer",
     },
+    // UnionInfo
+    g_union_info_get_n_fields: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_union_info_get_field: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+        "isize",
+      ],
+      /* FieldInfo */
+      result: "pointer",
+    },
+    g_union_info_get_n_methods: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_union_info_get_method: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+        "isize",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_union_info_is_discriminated: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_union_info_get_discriminator_offset: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_union_info_get_discriminator_type: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      /* TypeInfo */
+      result: "pointer",
+    },
+    g_union_info_get_discriminator: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+        "isize",
+      ],
+      /* ConstantInfo */
+      result: "pointer",
+    },
+    g_union_info_find_method: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_union_info_get_size: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_union_info_get_alignment: {
+      parameters: [
+        /* UnionInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
   } as const,
 );
