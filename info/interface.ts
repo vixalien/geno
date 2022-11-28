@@ -128,18 +128,6 @@ export class InterfaceInfo extends RegisteredTypeInfo {
     return ptr;
   }
 
-  find_constant(name: string) {
-    const ptr = c_girepository.symbols.g_interface_info_find_constant(
-      this.ptr,
-      strToPointer(name),
-    );
-
-    if (ptr === 0) return null;
-
-    // TODO: return ConstantInfo.fromPointer(ptr);
-    return ptr;
-  }
-
   get iface_struct() {
     const ptr = c_girepository.symbols.g_interface_info_get_iface_struct(
       this.ptr,

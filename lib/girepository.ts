@@ -1186,16 +1186,6 @@ export const c_girepository = Deno.dlopen(
       /* ConstantInfo */
       result: "pointer",
     },
-    g_interface_info_find_constant: {
-      parameters: [
-        /* InterfaceInfo */
-        "pointer",
-        /* string */
-        "pointer",
-      ],
-      /* ConstantInfo */
-      result: "pointer",
-    },
     g_interface_info_get_iface_struct: {
       parameters: [
         /* InterfaceInfo */
