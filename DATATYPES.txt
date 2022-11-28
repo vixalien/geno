@@ -17,10 +17,16 @@ structs
     + GIStructInfo
     + GIUnionInfo
     + GIObjectInfo
-    * GIInterfaceInfo
+    + GIInterfaceInfo
   + GIArgInfo
   + GIConstantInfo
   * GIFieldInfo
   * GIPropertyInfo
   * GITypeInfo
   * GIValueInfo
+
+key:
+
+- [-] partially implemented
+- [*] implemented
+- [+] not implemented

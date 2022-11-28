@@ -1058,5 +1058,151 @@ export const c_girepository = Deno.dlopen(
       ],
       result: "isize",
     },
+
+    // InterfaceInfo
+    g_interface_info_get_n_prerequisites: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_interface_info_get_prerequisite: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        "isize",
+      ],
+      /* BaseInfo */
+      result: "pointer",
+    },
+    g_interface_info_get_n_properties: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_interface_info_get_property: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        "isize",
+      ],
+      /* PropertyInfo */
+      result: "pointer",
+    },
+    g_interface_info_get_n_methods: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_interface_info_get_method: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        "isize",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_interface_info_find_method: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_interface_info_get_n_signals: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_interface_info_get_signal: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        "isize",
+      ],
+      /* SignalInfo */
+      result: "pointer",
+    },
+    g_interface_info_find_signal: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* SignalInfo */
+      result: "pointer",
+    },
+    g_interface_info_get_n_vfuncs: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_interface_info_get_vfunc: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        "isize",
+      ],
+      /* VFuncInfo */
+      result: "pointer",
+    },
+    g_interface_info_find_vfunc: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* VFuncInfo */
+      result: "pointer",
+    },
+    g_interface_info_get_n_constants: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_interface_info_get_constant: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        "isize",
+      ],
+      /* ConstantInfo */
+      result: "pointer",
+    },
+    g_interface_info_find_constant: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* ConstantInfo */
+      result: "pointer",
+    },
+    g_interface_info_get_iface_struct: {
+      parameters: [
+        /* InterfaceInfo */
+        "pointer",
+      ],
+      /* StructInfo */
+      result: "pointer",
+    },
   } as const,
 );
