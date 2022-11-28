@@ -13,8 +13,10 @@ extern "C" gchar *g_error_get_message(GError *error)
   return error->message;
 };
 
-extern "C" void gi_attribute_iter_new(gpointer* output)
+extern "C" void gi_attribute_iter_new(gpointer *output)
 {
-  GIAttributeIter iter = { 0, };
-  output[0] = (gpointer) &iter;
+  GIAttributeIter iter = {
+      0,
+  };
+  output[0] = (gpointer)&iter;
 }

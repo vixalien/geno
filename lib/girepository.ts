@@ -1194,5 +1194,29 @@ export const c_girepository = Deno.dlopen(
       /* StructInfo */
       result: "pointer",
     },
+
+    /* SignalInfo */
+    g_signal_info_get_flags: {
+      parameters: [
+        /* SignalInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_signal_info_get_class_closure: {
+      parameters: [
+        /* SignalInfo */
+        "pointer",
+      ],
+      /* VFuncInfo */
+      result: "pointer",
+    },
+    g_signal_info_true_stops_emit: {
+      parameters: [
+        /* SignalInfo */
+        "pointer",
+      ],
+      result: "bool",
+    },
   } as const,
 );

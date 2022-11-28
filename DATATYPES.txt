@@ -10,7 +10,7 @@ structs
   + GICallableInfo
     + GIFunctionInfo
     + GICallbackInfo
-    * GISignalInfo
+    + GISignalInfo
     * GIVFuncInfo
   + GIRegisteredTypeInfo
     + GIEnumInfo
