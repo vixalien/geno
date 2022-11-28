@@ -1,0 +1,26 @@
+
+- GIRepository
+* GITypelib
+* Common Types
+* girffi
+
+structs
+
++ GIBaseInfo
+  + GICallableInfo
+    + GIFunctionInfo
+    * GICallbackInfo
+    * GISignalInfo
+    * GIVFuncInfo
+  + GIRegisteredTypeInfo
+    + GIEnumInfo
+    + GIStructInfo
+    * GIUnionInfo
+    + GIObjectInfo
+    * GIInterfaceInfo
+  + GIArgInfo
+  + GIConstantInfo
+  * GIFieldInfo
+  * GIPropertyInfo
+  * GITypeInfo
+  * GIValueInfo

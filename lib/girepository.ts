@@ -888,5 +888,87 @@ export const c_girepository = Deno.dlopen(
       ],
       result: "i64",
     },
+
+    // StructInfo
+    g_struct_info_find_field: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* FieldInfo */
+      result: "pointer",
+    },
+    g_struct_info_get_alignment: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_struct_info_get_size: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_struct_info_is_gtype_struct: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_struct_info_is_foreign: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_struct_info_get_n_fields: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_struct_info_get_field: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+        "isize",
+      ],
+      /* FieldInfo */
+      result: "pointer",
+    },
+    g_struct_info_get_n_methods: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_struct_info_get_method: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+        "isize",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_struct_info_find_method: {
+      parameters: [
+        /* StructInfo */
+        "pointer",
+        /* string */
+        "pointer",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
   } as const,
 );

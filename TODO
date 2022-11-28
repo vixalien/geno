@@ -1,0 +1,2 @@
+- export the GI_IS_STRUCT_INFO fucntions to JSX
+- auto convert baseinfo to relevant types
