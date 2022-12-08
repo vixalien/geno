@@ -1218,5 +1218,59 @@ export const c_girepository = Deno.dlopen(
       ],
       result: "bool",
     },
+
+    // FieldInfo
+    g_field_info_get_field: {
+      parameters: [
+        /* FieldInfo */
+        "pointer",
+        /* ptr */
+        "pointer",
+        /* ret: Argument */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_field_info_set_field: {
+      parameters: [
+        /* FieldInfo */
+        "pointer",
+        /* ptr */
+        "pointer",
+        /* value: Argument */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_field_info_get_flags: {
+      parameters: [
+        /* FieldInfo */
+        "pointer",
+      ],
+      /* GIFieldInfoFlags */
+      result: "isize",
+    },
+    g_field_info_get_offset: {
+      parameters: [
+        /* FieldInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_field_info_get_size: {
+      parameters: [
+        /* FieldInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_field_info_get_type: {
+      parameters: [
+        /* FieldInfo */
+        "pointer",
+      ],
+      /* TypeInfo */
+      result: "pointer",
+    },
   } as const,
 );

@@ -1,8 +1,8 @@
 
 - GIRepository
-* GITypelib
-* Common Types
-* girffi
+? GITypelib
+? Common Types
+? girffi
 
 structs
 
@@ -20,13 +20,13 @@ structs
     + GIInterfaceInfo
   + GIArgInfo
   + GIConstantInfo
-  * GIFieldInfo
-  * GIPropertyInfo
-  * GITypeInfo
-  * GIValueInfo
+  + GIFieldInfo
+  ? GIPropertyInfo
+  ? GITypeInfo
+  ? GIValueInfo
 
 key:
 
 - [-] partially implemented
-- [*] implemented
-- [+] not implemented
+- [+] implemented
+- [?] not implemented
