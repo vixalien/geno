@@ -3,36 +3,8 @@
 export const c_girepository = Deno.dlopen(
   "/usr/lib/libgirepository-1.0.so",
   {
-    g_irepository_find_by_name: {
-      parameters: [
-        /* Repository */
-        "pointer",
-        /* namespace: string */
-        "pointer",
-        /* name: string */
-        "pointer",
-      ],
-      /* BaseInfo */
-      result: "pointer",
-    },
     g_irepository_get_default: {
       parameters: [],
-      result: "pointer",
-    },
-    g_irepository_require: {
-      parameters: [
-        /* Repository */
-        "pointer",
-        /* namespace: string */
-        "pointer",
-        /* version: string */
-        "pointer",
-        /* RepositoryLoadFlags */
-        "pointer",
-        /* Error */
-        "pointer",
-      ],
-      /* TypeLib */
       result: "pointer",
     },
     g_irepository_get_n_infos: {
@@ -52,6 +24,34 @@ export const c_girepository = Deno.dlopen(
         "pointer",
         /* index */
         "isize",
+      ],
+      /* BaseInfo */
+      result: "pointer",
+    },
+    g_irepository_require: {
+      parameters: [
+        /* Repository */
+        "pointer",
+        /* namespace: string */
+        "pointer",
+        /* version: string */
+        "pointer",
+        /* RepositoryLoadFlags */
+        "pointer",
+        /* Error */
+        "pointer",
+      ],
+      /* TypeLib */
+      result: "pointer",
+    },
+    g_irepository_find_by_name: {
+      parameters: [
+        /* Repository */
+        "pointer",
+        /* namespace: string */
+        "pointer",
+        /* name: string */
+        "pointer",
       ],
       /* BaseInfo */
       result: "pointer",
