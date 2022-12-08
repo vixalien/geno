@@ -21,7 +21,7 @@ structs
   + GIArgInfo
   + GIConstantInfo
   + GIFieldInfo
-  ? GIPropertyInfo
+  + GIPropertyInfo
   ? GITypeInfo
   ? GIValueInfo
 

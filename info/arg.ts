@@ -99,3 +99,23 @@ export class ArgInfo extends BaseInfo {
     return ptr;
   }
 }
+
+export enum GIDirection {
+  IN,
+  OUT,
+  INOUT,
+}
+
+export enum GIScopeType {
+  INVALID,
+  CALL,
+  ASYNC,
+  NOTIFIED,
+  FOREVER,
+}
+
+export enum GITransfer {
+  NOTHING,
+  CONTAINER,
+  EVERYTHING,
+}

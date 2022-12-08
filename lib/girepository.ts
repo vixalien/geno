@@ -1272,5 +1272,47 @@ export const c_girepository = Deno.dlopen(
       /* TypeInfo */
       result: "pointer",
     },
+
+    // PropertyInfo
+    g_property_info_get_flags: {
+      parameters: [
+        /* PropertyInfo */
+        "pointer",
+      ],
+      /* ParamFlags */
+      result: "isize",
+    },
+    g_property_info_get_ownership_transfer: {
+      parameters: [
+        /* PropertyInfo */
+        "pointer",
+      ],
+      /* Transfer */
+      result: "isize",
+    },
+    g_property_info_get_type: {
+      parameters: [
+        /* PropertyInfo */
+        "pointer",
+      ],
+      /* TypeInfo */
+      result: "pointer",
+    },
+    g_property_info_get_getter: {
+      parameters: [
+        /* PropertyInfo */
+        "pointer",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
+    g_property_info_get_setter: {
+      parameters: [
+        /* PropertyInfo */
+        "pointer",
+      ],
+      /* FunctionInfo */
+      result: "pointer",
+    },
   } as const,
 );
