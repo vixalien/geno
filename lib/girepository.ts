@@ -1314,5 +1314,68 @@ export const c_girepository = Deno.dlopen(
       /* FunctionInfo */
       result: "pointer",
     },
+
+    // TypeInfo
+    g_type_info_is_pointer: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_type_info_get_tag: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      /* GITypeTag */
+      result: "isize",
+    },
+    g_type_info_get_param_type: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+        "isize",
+      ],
+      /* TypeInfo */
+      result: "pointer",
+    },
+    g_type_info_get_interface: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      /* BaseInfo */
+      result: "pointer",
+    },
+    g_type_info_get_array_length: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_type_info_get_array_fixed_size: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      result: "isize",
+    },
+    g_type_info_is_zero_terminated: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      result: "bool",
+    },
+    g_type_info_get_array_type: {
+      parameters: [
+        /* TypeInfo */
+        "pointer",
+      ],
+      /* GIArrayType */
+      result: "isize",
+    },
   } as const,
 );

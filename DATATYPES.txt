@@ -22,7 +22,7 @@ structs
   + GIConstantInfo
   + GIFieldInfo
   + GIPropertyInfo
-  ? GITypeInfo
+  + GITypeInfo
   ? GIValueInfo
 
 key:

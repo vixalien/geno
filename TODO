@@ -1,3 +1,8 @@
 - export the GI_IS_STRUCT_INFO fucntions to JSX
 - auto convert baseinfo to relevant types
 - find a way to deal with flags
+- normalize getters vs. get_[property]
+- return null for properties that return that (check pointer value)
+- specifically convert int/number types (I'm still confused about whether i64 maps to number or bigint)
+- add a static property that checks the type of a baseinfo
+- add a static property that automatically maps a pointer to the correct struct
