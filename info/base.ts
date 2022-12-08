@@ -1,10 +1,9 @@
 import { c_girepository } from "../lib/girepository.ts";
+import { c_error } from "../lib/structs.ts";
 
 import { PointerObj } from "../pointerobj.ts";
 import { TypeLib } from "../typelib.ts";
 import { pointerToStr, strToPointer } from "../util.ts";
-import { AttributeIter } from "./attributeiter.ts";
-import { info_type_to_string, InfoType } from "./infotype.ts";
 
 export class BaseInfo extends PointerObj {
   new(
@@ -99,3 +98,41 @@ export class BaseInfo extends PointerObj {
     return info_type_to_string(this.type);
   }
 }
+
+export class AttributeIter extends PointerObj {
+  static generate() {
+    const arr = new BigInt64Array(1);
+    c_error.symbols.gi_attribute_iter_new(Deno.UnsafePointer.of(arr));
+
+    return this.fromPointer(arr[0]);
+  }
+}
+
+export enum InfoType {
+  INVALID,
+  FUNCTION,
+  CALLBACK,
+  STRUCT,
+  BOXED,
+  ENUM, /*  5 */
+  FLAGS,
+  OBJECT,
+  INTERFACE,
+  CONSTANT,
+  INVALID_0, /* 10 */
+  UNION,
+  VALUE,
+  SIGNAL,
+  VFUNC,
+  PROPERTY, /* 15 */
+  FIELD,
+  ARG,
+  TYPE,
+  UNRESOLVED,
+}
+
+export const info_type_to_string = (type: InfoType) => {
+  const ptr = c_girepository.symbols.g_info_type_to_string(type);
+
+  return pointerToStr(ptr);
+};
