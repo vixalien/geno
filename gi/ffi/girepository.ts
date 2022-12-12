@@ -1,4 +1,4 @@
-// TODO: split this up when typescript 4.9 launches
+// TODO: split this up when typescript 4.9 launches in deno (by using satisifies & as const)
 
 export const c_girepository = Deno.dlopen(
   "/usr/lib/libgirepository-1.0.so",
@@ -1376,6 +1376,14 @@ export const c_girepository = Deno.dlopen(
       ],
       /* GIArrayType */
       result: "isize",
+    },
+    g_type_tag_to_string: {
+      parameters: [
+        /* GITypeTag */
+        "isize",
+      ],
+      /* string */
+      result: "pointer",
     },
   } as const,
 );

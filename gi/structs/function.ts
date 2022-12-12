@@ -11,9 +11,9 @@ import {
 
 export class FunctionInfo extends CallableInfo {
   get_flags() {
-    return c_girepository.symbols.g_function_info_get_flags(this.ptr);
-
-    // TODO: return  FunctionInfoFlags.fromPointer(ptr);
+    return c_girepository.symbols.g_function_info_get_flags(
+      this.ptr,
+    ) as FunctionInfoFlags;
   }
 
   get_property() {
@@ -98,12 +98,12 @@ export class FunctionInfo extends CallableInfo {
       throw new Error("function has not been executed");
     }
 
-    // TODO: return FunctionInfoFlags.fromPointer(ptr)
+    // NODO: return FunctionInfoFlags.fromPointer(ptr)
     return return_value;
   }
 }
 
-enum SingleFunctionInfoFlags {
+export enum FunctionInfoFlags {
   IS_METHOD,
   IS_CONSTRUCTOR,
   IS_GETTER,
@@ -111,8 +111,6 @@ enum SingleFunctionInfoFlags {
   WRAPS_VFUNC,
   THROWS,
 }
-
-export type FunctionInfoFlags = SingleFunctionInfoFlags[];
 
 export enum InvokeError {
   FAILED,

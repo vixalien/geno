@@ -1,7 +1,7 @@
 
 - GIRepository
-? GITypelib
-? Common Types
+- GITypelib
+- Common Types
 ? girffi
 
 structs

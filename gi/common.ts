@@ -1,9 +1,10 @@
 import {
   c_arg,
+  c_girepository,
   PointerObj,
   pointerToStr,
   strToPointer,
-} from "../structs/util.ts";
+} from "./structs/util.ts";
 
 export class Argument extends PointerObj {
   static generate() {
@@ -184,3 +185,45 @@ export class Argument extends PointerObj {
     c_arg.symbols.g_argument_set_v_pointer(this.ptr, val);
   }
 }
+
+export enum ArrayType {
+  GI_ARRAY_TYPE_C,
+  GI_ARRAY_TYPE_ARRAY,
+  GI_ARRAY_TYPE_PTR_ARRAY,
+  GI_ARRAY_TYPE_BYTE_ARRAY,
+}
+
+export enum TypeTag {
+  /* Basic types */
+  VOID = 0,
+  BOOLEAN = 1,
+  INT8 = 2, /* Start of GI_TYPE_TAG_IS_NUMERIC types */
+  UINT8 = 3,
+  INT16 = 4,
+  UINT16 = 5,
+  INT32 = 6,
+  UINT32 = 7,
+  INT64 = 8,
+  UINT64 = 9,
+  FLOAT = 10,
+  DOUBLE = 11, /* End of numeric types */
+  GTYPE = 12,
+  UTF8 = 13,
+  FILENAME = 14,
+  /* Non-basic types; compare with GI_TYPE_TAG_IS_BASIC */
+  ARRAY = 15, /* container (see GI_TYPE_TAG_IS_CONTAINER) */
+  INTERFACE = 16,
+  GLIST = 17, /* container */
+  GSLIST = 18, /* container */
+  GHASH = 19, /* container */
+  ERROR = 20,
+  /* Another basic type */
+  UNICHAR = 21,
+  /* Note - there is currently only room for 32 tags */
+}
+
+export const type_tag_to_string = (type: TypeTag) => {
+  const ptr = c_girepository.symbols.g_type_tag_to_string(type);
+
+  return pointerToStr(ptr);
+};

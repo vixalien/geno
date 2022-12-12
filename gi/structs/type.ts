@@ -1,5 +1,5 @@
 import { BaseInfo } from "./base.ts";
-import { c_girepository } from "./util.ts";
+import { ArrayType, c_girepository, TypeTag } from "./util.ts";
 
 export class TypeInfo extends BaseInfo {
   is_pointer() {
@@ -7,10 +7,7 @@ export class TypeInfo extends BaseInfo {
   }
 
   get_tag() {
-    const ptr = c_girepository.symbols.g_type_info_get_tag(this.ptr);
-
-    return ptr;
-    // TODO: return  TypeTag.fromPointer(ptr);
+    return c_girepository.symbols.g_type_info_get_tag(this.ptr) as TypeTag;
   }
 
   get_param_type(n: Deno.PointerValue) {
@@ -40,9 +37,8 @@ export class TypeInfo extends BaseInfo {
   }
 
   get_array_type() {
-    const ptr = c_girepository.symbols.g_type_info_get_array_type(this.ptr);
-
-    return ptr;
-    // TODO: return ArrayType.fromPointer(ptr);
+    return c_girepository.symbols.g_type_info_get_array_type(
+      this.ptr,
+    ) as ArrayType;
   }
 }

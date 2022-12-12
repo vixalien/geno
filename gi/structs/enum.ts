@@ -1,6 +1,6 @@
 import { FunctionInfo } from "./function.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
-import { c_girepository, pointerToStr } from "./util.ts";
+import { c_girepository, pointerToStr, TypeTag } from "./util.ts";
 import { ValueInfo } from "./value.ts";
 
 export class EnumInfo extends RegisteredTypeInfo {
@@ -29,10 +29,9 @@ export class EnumInfo extends RegisteredTypeInfo {
   }
 
   get storage_type() {
-    const ptr = c_girepository.symbols.g_enum_info_get_storage_type(this.ptr);
-
-    return ptr;
-    // TODO: return TypeTag.fromPointer(ptr);
+    return c_girepository.symbols.g_enum_info_get_storage_type(
+      this.ptr,
+    ) as TypeTag;
   }
 
   get error_domain() {
