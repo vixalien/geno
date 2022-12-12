@@ -1,4 +1,5 @@
 import { BaseInfo } from "./base.ts";
+import { TypeInfo } from "./type.ts";
 import { Argument, c_girepository } from "./util.ts";
 
 export class FieldInfo extends BaseInfo {
@@ -35,8 +36,7 @@ export class FieldInfo extends BaseInfo {
   get field_type() {
     const ptr = c_girepository.symbols.g_field_info_get_type(this.ptr);
 
-    // TODO: return TypeInfo.fromPointer(ptr);
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 }
 

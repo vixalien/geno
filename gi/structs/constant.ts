@@ -1,4 +1,5 @@
 import { BaseInfo } from "./base.ts";
+import { TypeInfo } from "./type.ts";
 import { Argument, c_girepository } from "./util.ts";
 
 export class ConstantInfo extends BaseInfo {
@@ -10,8 +11,7 @@ export class ConstantInfo extends BaseInfo {
   get constant_type() {
     const ptr = c_girepository.symbols.g_constant_info_get_type(this.ptr);
 
-    // TODO: return TypeInfo.fromPointer(ptr);
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 
   get_value(value: Argument) {

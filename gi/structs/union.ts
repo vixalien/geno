@@ -1,4 +1,8 @@
+import { ConstantInfo } from "./constant.ts";
+import { FieldInfo } from "./field.ts";
+import { FunctionInfo } from "./function.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
+import { TypeInfo } from "./type.ts";
 import { c_girepository, strToPointer } from "./util.ts";
 
 export class UnionInfo extends RegisteredTypeInfo {
@@ -11,8 +15,7 @@ export class UnionInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FieldInfo.fromPointer(ptr);
-    return ptr;
+    return FieldInfo.fromPointer(ptr);
   }
 
   get n_methods() {
@@ -24,8 +27,7 @@ export class UnionInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   get is_discriminated() {
@@ -45,8 +47,7 @@ export class UnionInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return TypeInfo.fromPointer(ptr);
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 
   get_discriminatior(n: number | bigint) {
@@ -57,8 +58,7 @@ export class UnionInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return ConstantInfo.fromPointer(ptr);
-    return ptr;
+    return ConstantInfo.fromPointer(ptr);
   }
 
   find_method(name: string) {
@@ -69,8 +69,7 @@ export class UnionInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   get size() {

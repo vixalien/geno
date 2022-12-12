@@ -1,8 +1,9 @@
-import { c_girepository, pointerToStr, strToPointer } from "./util.ts";
+import { c_girepository, pointerToStr, reserve, strToPointer } from "./util.ts";
 import { AttributeIter } from "./base.ts";
-import { Transfer } from "./arg.ts";
+import { ArgInfo, Transfer } from "./arg.ts";
 
 import { BaseInfo } from "./base.ts";
+import { TypeInfo } from "./type.ts";
 
 export class CallableInfo extends BaseInfo {
   can_throw_gerror() {
@@ -18,8 +19,9 @@ export class CallableInfo extends BaseInfo {
   get_arg(n: number | bigint) {
     const ptr = c_girepository.symbols.g_callable_info_get_arg(this.ptr, n);
 
-    // TODO: return ArgInfo.fromPointer(ptr)
-    return ptr;
+    if (!ptr) return null;
+
+    return ArgInfo.fromPointer(ptr);
   }
 
   get_caller_owns() {
@@ -51,8 +53,7 @@ export class CallableInfo extends BaseInfo {
       this.ptr,
     );
 
-    // TODO: return TypeInfo.fromPointer(ptr)
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 
   /*
@@ -86,19 +87,19 @@ export class CallableInfo extends BaseInfo {
   }
 
   load_arg(n: number | bigint) {
-    const arg = 0;
+    const arg = reserve();
     c_girepository.symbols.g_callable_info_load_arg(this.ptr, n, arg);
 
-    // TODO: return ArgInfo.fromPointer(arg);
-    return arg;
+    if (!arg) return null;
+
+    return ArgInfo.fromPointer(arg);
   }
 
   load_return_type() {
-    const arg = 0;
+    const arg = reserve();
     c_girepository.symbols.g_callable_info_load_return_type(this.ptr, arg);
 
-    // TODO: return ArgInfo.fromPointer(arg);
-    return arg;
+    return ArgInfo.fromPointer(arg);
   }
 
   may_return_null() {

@@ -9,15 +9,14 @@ export class TypeInfo extends BaseInfo {
   get_tag() {
     const ptr = c_girepository.symbols.g_type_info_get_tag(this.ptr);
 
-    // TODO: return TypeTag.fromPointer(ptr)
     return ptr;
+    // TODO: return  TypeTag.fromPointer(ptr);
   }
 
   get_param_type(n: Deno.PointerValue) {
     const ptr = c_girepository.symbols.g_type_info_get_param_type(this.ptr, n);
 
-    // TODO: return TypeInfo.fromPointer(ptr)
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 
   get_interface() {
@@ -43,7 +42,7 @@ export class TypeInfo extends BaseInfo {
   get_array_type() {
     const ptr = c_girepository.symbols.g_type_info_get_array_type(this.ptr);
 
-    // TODO: return ArrayType.fromPointer(ptr)
     return ptr;
+    // TODO: return ArrayType.fromPointer(ptr);
   }
 }

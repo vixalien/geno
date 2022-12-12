@@ -1,3 +1,4 @@
+import { FunctionInfo } from "./function.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
 import { c_girepository } from "./util.ts";
 
@@ -18,8 +19,7 @@ export class SignalInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   get true_stops_emit() {

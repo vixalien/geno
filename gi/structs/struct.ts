@@ -1,3 +1,5 @@
+import { FieldInfo } from "./field.ts";
+import { FunctionInfo } from "./function.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
 import { c_girepository, strToPointer } from "./util.ts";
 
@@ -10,8 +12,7 @@ export class StructInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FieldInfo.fromPointer(ptr);
-    return ptr;
+    return FieldInfo.fromPointer(ptr);
   }
 
   get alignment() {
@@ -39,8 +40,7 @@ export class StructInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FieldInfo.fromPointer(ptr);
-    return ptr;
+    return FieldInfo.fromPointer(ptr);
   }
 
   get n_methods() {
@@ -52,8 +52,7 @@ export class StructInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   find_method(name: string) {
@@ -64,7 +63,6 @@ export class StructInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 }

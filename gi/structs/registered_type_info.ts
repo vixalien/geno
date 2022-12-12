@@ -24,8 +24,7 @@ export class RegisteredTypeInfo extends BaseInfo {
       this.ptr,
     );
 
-    // TODO: return GType.fromPointer(ptr);
-
     return ptr;
+    // TODO: return  GType.fromPointer(ptr);;
   }
 }

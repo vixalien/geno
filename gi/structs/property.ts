@@ -1,6 +1,8 @@
 import { BaseInfo } from "./base.ts";
 import { Transfer } from "./arg.ts";
 import { c_girepository } from "./util.ts";
+import { TypeInfo } from "./type.ts";
+import { FunctionInfo } from "./function.ts";
 
 export class PropertyInfo extends BaseInfo {
   get_flags() {
@@ -20,22 +22,19 @@ export class PropertyInfo extends BaseInfo {
   get_type() {
     const ptr = c_girepository.symbols.g_property_info_get_type(this.ptr);
 
-    // TODO: return TypeInfo.fromPointer(ptr)
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 
   get_getter() {
     const ptr = c_girepository.symbols.g_property_info_get_getter(this.ptr);
 
-    // TODO: return FunctionInfo.fromPointer(ptr)
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   get_setter() {
     const ptr = c_girepository.symbols.g_property_info_get_setter(this.ptr);
 
-    // TODO: return FunctionInfo.fromPointer(ptr)
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 }
 

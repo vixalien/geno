@@ -1,4 +1,5 @@
 import { CallableInfo } from "./callable.ts";
+import { PropertyInfo } from "./property.ts";
 import {
   Argument,
   c_girepository,
@@ -10,17 +11,15 @@ import {
 
 export class FunctionInfo extends CallableInfo {
   get_flags() {
-    const ptr = c_girepository.symbols.g_function_info_get_flags(this.ptr);
+    return c_girepository.symbols.g_function_info_get_flags(this.ptr);
 
-    // TODO: return FunctionInfoFlags.fromPointer(ptr)
-    return ptr;
+    // TODO: return  FunctionInfoFlags.fromPointer(ptr);
   }
 
   get_property() {
     const ptr = c_girepository.symbols.g_function_info_get_property(this.ptr);
 
-    // TODO: return PropertyInfo.fromPointer(ptr)
-    return ptr;
+    return PropertyInfo.fromPointer(ptr);
   }
 
   get_symbol() {
@@ -32,7 +31,7 @@ export class FunctionInfo extends CallableInfo {
   get_vfunc() {
     const ptr = c_girepository.symbols.g_function_info_get_vfunc(this.ptr);
 
-    // TODO: return VFuncInfo.fromPointer(ptr)
+    // TODO: return  VFuncInfo.fromPointer(ptr);
     return ptr;
   }
 

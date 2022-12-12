@@ -1,4 +1,10 @@
+import { ConstantInfo } from "./constant.ts";
+import { FieldInfo } from "./field.ts";
+import { FunctionInfo } from "./function.ts";
+import { InterfaceInfo } from "./interface.ts";
+import { PropertyInfo } from "./property.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
+import { SignalInfo } from "./signal.ts";
 import { c_girepository, pointerToStr, strToPointer } from "./util.ts";
 
 export class ObjectInfo extends RegisteredTypeInfo {
@@ -41,8 +47,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return ConstantInfo.fromPointer(ptr);
-    return ptr;
+    return ConstantInfo.fromPointer(ptr);
   }
 
   get n_fields() {
@@ -54,8 +59,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FieldInfo.fromPointer(ptr);
-    return ptr;
+    return FieldInfo.fromPointer(ptr);
   }
 
   get n_interfaces() {
@@ -67,8 +71,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return InterfaceInfo.fromPointer(ptr);
-    return ptr;
+    return InterfaceInfo.fromPointer(ptr);
   }
 
   get n_methods() {
@@ -80,8 +83,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   find_method(name: string) {
@@ -92,8 +94,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   // TODO: use implementor: GIObjectInfo
@@ -107,8 +108,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return FunctionInfo.fromPointer(ptr);
-    return ptr;
+    return FunctionInfo.fromPointer(ptr);
   }
 
   get n_properties() {
@@ -118,8 +118,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
   get_property(n: number | bigint) {
     const ptr = c_girepository.symbols.g_object_info_get_property(this.ptr, n);
 
-    // TODO: return PropertyInfo.fromPointer(ptr);
-    return ptr;
+    return PropertyInfo.fromPointer(ptr);
   }
 
   get n_signals() {
@@ -131,8 +130,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return SignalInfo.fromPointer(ptr);
-    return ptr;
+    return SignalInfo.fromPointer(ptr);
   }
 
   find_signal(name: string) {
@@ -143,8 +141,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return SignalInfo.fromPointer(ptr);
-    return ptr;
+    return SignalInfo.fromPointer(ptr);
   }
 
   get n_vfuncs() {
@@ -156,8 +153,8 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return VFuncInfo.fromPointer(ptr);
     return ptr;
+    // TODO: return  VFuncInfo.fromPointer(ptr);;
   }
 
   find_vfunc(name: string) {
@@ -168,8 +165,8 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return VFuncInfo.fromPointer(ptr);
     return ptr;
+    // TODO: return  VFuncInfo.fromPointer(ptr);;
   }
 
   // TODO: use implementor: GIObjectInfo
@@ -183,8 +180,8 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return VFuncInfo.fromPointer(ptr);
     return ptr;
+    // TODO: return  VFuncInfo.fromPointer(ptr);;
   }
 
   get class_struct() {
@@ -192,8 +189,8 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    // TODO: return StructInfo.fromPointer(ptr);
     return ptr;
+    // TODO: return  StructInfo.fromPointer(ptr);;
   }
 
   get ref_function() {

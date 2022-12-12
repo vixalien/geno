@@ -1,5 +1,6 @@
 import { c_girepository } from "./util.ts";
 import { BaseInfo } from "./base.ts";
+import { TypeInfo } from "./type.ts";
 
 export enum Direction {
   IN,
@@ -57,16 +58,13 @@ export class ArgInfo extends BaseInfo {
   get_type() {
     const ptr = c_girepository.symbols.g_arg_info_get_type(this.ptr);
 
-    // TODO: return TypeInfo.fromPointer(ptr)
-    return ptr;
+    return TypeInfo.fromPointer(ptr);
   }
 
   load_type() {
-    const type = 0;
-    /* const ptr = */ c_girepository.symbols.g_arg_info_get_scope(this.ptr);
+    const ptr = c_girepository.symbols.g_arg_info_get_scope(this.ptr);
 
-    // TODO: return TypeInfo.fromPointer(ptr)
-    return type;
+    return TypeInfo.fromPointer(ptr);
   }
 
   may_be_null() {
