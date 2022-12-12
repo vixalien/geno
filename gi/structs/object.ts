@@ -1,6 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { pointerToStr, strToPointer } from "../util.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
+import { c_girepository, pointerToStr, strToPointer } from "./util.ts";
 
 export class ObjectInfo extends RegisteredTypeInfo {
   get abstract() {
@@ -212,7 +211,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    const fn = new Deno.UnsafeFnPointer(ptr, ObjectInfoRefFunction);
+    const fn = new Deno.UnsafeFnPointer(ptr, RefFunction);
 
     return () => {
       const result = fn.call(this.ptr);
@@ -238,7 +237,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    const fn = new Deno.UnsafeFnPointer(ptr, ObjectInfoUnRefFunction);
+    const fn = new Deno.UnsafeFnPointer(ptr, UnRefFunction);
 
     return () => {
       fn.call(this.ptr);
@@ -261,7 +260,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    const fn = new Deno.UnsafeFnPointer(ptr, ObjectInfoSetValueFunction);
+    const fn = new Deno.UnsafeFnPointer(ptr, SetValueFunction);
 
     // TODO: value: GValue
     return (value: Deno.PointerValue) => {
@@ -285,7 +284,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 
     if (ptr === 0) return null;
 
-    const fn = new Deno.UnsafeFnPointer(ptr, ObjectInfoGetValueFunction);
+    const fn = new Deno.UnsafeFnPointer(ptr, GetValueFunction);
 
     // TODO: value: GValue
     return (value: Deno.PointerValue) => {
@@ -297,7 +296,7 @@ export class ObjectInfo extends RegisteredTypeInfo {
 }
 
 // ObjectInfoRefFunction
-export const ObjectInfoRefFunction = {
+export const RefFunction = {
   parameters: [
     /* ObjectInfo */
     "pointer",
@@ -306,7 +305,7 @@ export const ObjectInfoRefFunction = {
   result: "pointer",
 } as const;
 
-export const ObjectInfoUnRefFunction = {
+export const UnRefFunction = {
   parameters: [
     /* ObjectInfo */
     "pointer",
@@ -314,7 +313,7 @@ export const ObjectInfoUnRefFunction = {
   result: "void",
 } as const;
 
-export const ObjectInfoSetValueFunction = {
+export const SetValueFunction = {
   parameters: [
     /* GValue */
     "pointer",
@@ -324,7 +323,7 @@ export const ObjectInfoSetValueFunction = {
   result: "void",
 } as const;
 
-export const ObjectInfoGetValueFunction = {
+export const GetValueFunction = {
   parameters: [
     /* GValue */
     "pointer",

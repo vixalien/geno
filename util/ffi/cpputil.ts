@@ -1,4 +1,4 @@
-export const c_error = Deno.dlopen("./native/structs.so", {
+export const c_ccputil = Deno.dlopen("./build/cpputil.so", {
   g_error_get_code: {
     parameters: [
       /* GError */

@@ -1,6 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { Argument } from "./argument.ts";
 import { BaseInfo } from "./base.ts";
+import { Argument, c_girepository } from "./util.ts";
 
 export class ConstantInfo extends BaseInfo {
   free_value(value: Argument) {

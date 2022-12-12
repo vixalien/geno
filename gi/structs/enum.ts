@@ -1,7 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { pointerToStr } from "../util.ts";
-import { BaseInfo } from "./base.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
+import { c_girepository, pointerToStr } from "./util.ts";
 
 export class EnumInfo extends RegisteredTypeInfo {
   get n_values() {
@@ -43,12 +41,5 @@ export class EnumInfo extends RegisteredTypeInfo {
     if (ptr === 0) return null;
 
     return pointerToStr(ptr);
-  }
-}
-
-// TODO: upstream this
-export class ValueInfo extends BaseInfo {
-  get value() {
-    return c_girepository.symbols.g_value_info_get_value(this.ptr);
   }
 }

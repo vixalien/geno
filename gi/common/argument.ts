@@ -1,6 +1,9 @@
-import { PointerObj } from "../pointerobj.ts";
-import { c_arg } from "../lib/arg.ts";
-import { pointerToStr, strToPointer } from "../util.ts";
+import {
+  c_arg,
+  PointerObj,
+  pointerToStr,
+  strToPointer,
+} from "../structs/util.ts";
 
 export class Argument extends PointerObj {
   static generate() {

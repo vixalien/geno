@@ -1,9 +1,7 @@
-import { Repository } from "../repository.ts";
-import { closeAll } from "../lib/close.ts";
+import { gi, util } from "../mod.ts";
 
-import { Argument } from "../info/argument.ts";
-import { FunctionInfo } from "../info/function.ts";
-import { pointerToStr, reserve, strToPointer } from "../util.ts";
+const { Repository, Argument, FunctionInfo, closeAll } = gi;
+const { reserve, strToPointer, pointerToStr } = util;
 
 const repo = Repository.get_default();
 repo.require("GLib", "2.0");

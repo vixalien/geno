@@ -1,4 +1,4 @@
-import { c_girepository } from "../lib/girepository.ts";
+import { c_girepository } from "./util.ts";
 import { BaseInfo } from "./base.ts";
 
 export enum Direction {
@@ -98,24 +98,4 @@ export class ArgInfo extends BaseInfo {
 
     return ptr;
   }
-}
-
-export enum GIDirection {
-  IN,
-  OUT,
-  INOUT,
-}
-
-export enum GIScopeType {
-  INVALID,
-  CALL,
-  ASYNC,
-  NOTIFIED,
-  FOREVER,
-}
-
-export enum GITransfer {
-  NOTHING,
-  CONTAINER,
-  EVERYTHING,
 }

@@ -1,4 +1,4 @@
-export const c_arg = Deno.dlopen("./native/arg.so", {
+export const c_arg = Deno.dlopen("./build/arg.so", {
   g_argument_new: {
     parameters: [
       /* Argument */

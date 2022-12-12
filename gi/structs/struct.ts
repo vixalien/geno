@@ -1,6 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { strToPointer } from "../util.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
+import { c_girepository, strToPointer } from "./util.ts";
 
 export class StructInfo extends RegisteredTypeInfo {
   find_field(name: string) {

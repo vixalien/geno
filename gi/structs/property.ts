@@ -1,12 +1,12 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { GITransfer } from "./arg.ts";
 import { BaseInfo } from "./base.ts";
+import { Transfer } from "./arg.ts";
+import { c_girepository } from "./util.ts";
 
 export class PropertyInfo extends BaseInfo {
   get_flags() {
     const ptr = c_girepository.symbols.g_property_info_get_flags(this.ptr);
 
-    return ptr as GParamFlags;
+    return ptr as ParamFlags;
   }
 
   get_ownership_transfer() {
@@ -14,7 +14,7 @@ export class PropertyInfo extends BaseInfo {
       this.ptr,
     );
 
-    return ptr as GITransfer;
+    return ptr as Transfer;
   }
 
   get_type() {
@@ -39,7 +39,7 @@ export class PropertyInfo extends BaseInfo {
   }
 }
 
-export enum GParamFlags {
+export enum ParamFlags {
   G_PARAM_READABLE = 1 << 0,
   G_PARAM_WRITABLE = 1 << 1,
   G_PARAM_READWRITE = (G_PARAM_READABLE | G_PARAM_WRITABLE),

@@ -1,9 +1,12 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { c_error } from "../lib/structs.ts";
-
-import { PointerObj } from "../pointerobj.ts";
-import { TypeLib } from "../typelib.ts";
-import { pointerToStr, strToPointer } from "../util.ts";
+import {
+  c_ccputil,
+  c_girepository,
+  PointerObj,
+  pointerToStr,
+  strToPointer,
+  TypeLib,
+} from "./util.ts";
+import * as d from "./mod.ts";
 
 export class BaseInfo extends PointerObj {
   new(
@@ -32,6 +35,18 @@ export class BaseInfo extends PointerObj {
 
   equal(base_info: BaseInfo) {
     return c_girepository.symbols.g_base_info_equal(this.ptr, base_info.ptr);
+  }
+
+  static get_type(pointer: Deno.PointerValue) {
+    return c_girepository.symbols.g_base_info_get_type(pointer) as InfoType;
+  }
+
+  static castedFromPointer(pointer: Deno.PointerValue) {
+    const type = c_girepository.symbols.g_base_info_get_type(
+      pointer,
+    ) as InfoType;
+    const CastedInfo = info_type_to_class(type) as typeof BaseInfo;
+    return CastedInfo.fromPointer(pointer) as BaseInfo;
   }
 
   get type() {
@@ -102,7 +117,7 @@ export class BaseInfo extends PointerObj {
 export class AttributeIter extends PointerObj {
   static generate() {
     const arr = new BigInt64Array(1);
-    c_error.symbols.gi_attribute_iter_new(Deno.UnsafePointer.of(arr));
+    c_ccputil.symbols.gi_attribute_iter_new(Deno.UnsafePointer.of(arr));
 
     return this.fromPointer(arr[0]);
   }
@@ -130,6 +145,49 @@ export enum InfoType {
   TYPE,
   UNRESOLVED,
 }
+
+export const info_type_to_class = (type: InfoType) => {
+  switch (type) {
+    case InfoType.FUNCTION:
+      return d.FunctionInfo;
+    case InfoType.CALLBACK:
+      return d.CallbackInfo;
+    case InfoType.STRUCT:
+      return d.StructInfo;
+    // case InfoType.BOXED:
+    //   return d.BoxedInfo;
+    case InfoType.ENUM:
+      return d.EnumInfo;
+    // case InfoType.FLAGS:
+    //   return d.FlagsInfo;
+    case InfoType.OBJECT:
+      return d.ObjectInfo;
+    case InfoType.INTERFACE:
+      return d.InterfaceInfo;
+    case InfoType.CONSTANT:
+      return d.ConstantInfo;
+    case InfoType.UNION:
+      return d.UnionInfo;
+    case InfoType.VALUE:
+      return d.ValueInfo;
+    case InfoType.SIGNAL:
+      return d.SignalInfo;
+    // case InfoType.VFUNC:
+    //   return d.VFuncInfo;
+    case InfoType.PROPERTY:
+      return d.PropertyInfo;
+    case InfoType.FIELD:
+      return d.FieldInfo;
+    case InfoType.ARG:
+      return d.ArgInfo;
+    case InfoType.TYPE:
+      return d.TypeInfo;
+    case InfoType.UNRESOLVED:
+      throw new Error("Unresolved info type");
+    default:
+      throw new Error("Invalid info type");
+  }
+};
 
 export const info_type_to_string = (type: InfoType) => {
   const ptr = c_girepository.symbols.g_info_type_to_string(type);

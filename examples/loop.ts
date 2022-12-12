@@ -1,6 +1,6 @@
-import { Repository } from "../repository.ts";
-import { closeAll } from "../lib/close.ts";
-import { InfoType } from "../info/base.ts";
+import { gi } from "../mod.ts";
+
+const { Repository, InfoType, closeAll } = gi;
 
 const repo = Repository.get_default();
 repo.require("Gtk", "4.0");

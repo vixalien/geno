@@ -1,5 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
 import { BaseInfo } from "./base.ts";
+import { c_girepository } from "./util.ts";
 
 export class TypeInfo extends BaseInfo {
   is_pointer() {

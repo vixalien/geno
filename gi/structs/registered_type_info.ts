@@ -1,6 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { pointerToStr } from "../util.ts";
 import { BaseInfo } from "./base.ts";
+import { c_girepository, pointerToStr } from "./util.ts";
 
 export class RegisteredTypeInfo extends BaseInfo {
   get type_name() {

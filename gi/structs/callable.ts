@@ -1,7 +1,6 @@
-import { c_girepository } from "../lib/girepository.ts";
-import { pointerToStr, strToPointer } from "../util.ts";
+import { c_girepository, pointerToStr, strToPointer } from "./util.ts";
+import { AttributeIter } from "./base.ts";
 import { Transfer } from "./arg.ts";
-import { AttributeIter } from "./attributeiter.ts";
 
 import { BaseInfo } from "./base.ts";
 

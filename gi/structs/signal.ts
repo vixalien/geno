@@ -1,5 +1,5 @@
-import { c_girepository } from "../lib/girepository.ts";
 import { RegisteredTypeInfo } from "./registered_type_info.ts";
+import { c_girepository } from "./util.ts";
 
 // TODO: i feel like this is incomplete. I don't know
 // the reference is: https://gnome.pages.gitlab.gnome.org/gobject-introspection/girepository/

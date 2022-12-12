@@ -1,9 +1,12 @@
 import { CallableInfo } from "./callable.ts";
-import { Argument } from "./argument.ts";
-
-import { c_girepository } from "../lib/girepository.ts";
-import { pointerToStr, reserve, strToPointer } from "../util.ts";
-import { GError } from "../gerror.ts";
+import {
+  Argument,
+  c_girepository,
+  GError,
+  pointerToStr,
+  reserve,
+  strToPointer,
+} from "./util.ts";
 
 export class FunctionInfo extends CallableInfo {
   get_flags() {

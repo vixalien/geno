@@ -1,6 +1,6 @@
 import { PointerObj } from "./pointerobj.ts";
 
-import { c_error } from "./lib/structs.ts";
+import { c_ccputil } from "../util/ffi/cpputil.ts";
 
 export class GError extends PointerObj {
   constructor(pointer: Deno.PointerValue) {
@@ -10,7 +10,7 @@ export class GError extends PointerObj {
 
   get message() {
     console.log("ptr", this.ptr);
-    const ptr = c_error.symbols.g_error_get_message(this.ptr);
+    const ptr = c_ccputil.symbols.g_error_get_message(this.ptr);
 
     if (ptr === 0) return null;
 
@@ -18,7 +18,7 @@ export class GError extends PointerObj {
   }
 
   get code() {
-    return c_error.symbols.g_error_get_code(this.ptr);
+    return c_ccputil.symbols.g_error_get_code(this.ptr);
   }
 
   toError() {

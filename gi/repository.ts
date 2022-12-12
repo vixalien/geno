@@ -1,10 +1,11 @@
-import { PointerObj } from "./pointerobj.ts";
-import { strToPointer } from "./util.ts";
-
-import { BaseInfo } from "./info/base.ts";
-import { TypeLib } from "./typelib.ts";
-import { GError } from "./gerror.ts";
-import { c_girepository } from "./lib/girepository.ts";
+import { BaseInfo } from "./structs/mod.ts";
+import {
+  c_girepository,
+  GError,
+  PointerObj,
+  strToPointer,
+  TypeLib,
+} from "./structs/util.ts";
 
 export class Repository extends PointerObj {
   require(namespace: string, version: string) {
@@ -35,7 +36,7 @@ export class Repository extends PointerObj {
       strToPointer(name),
     );
 
-    return BaseInfo.fromPointer(base_info);
+    return BaseInfo.castedFromPointer(base_info);
   }
 
   get_n_infos(namespace: string) {
