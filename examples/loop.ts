@@ -1,6 +1,4 @@
-import { gi } from "../mod.ts";
-
-const { Repository, InfoType, closeAll } = gi;
+import { closeAll, InfoType, Repository } from "../mod.ts";
 
 const repo = Repository.get_default();
 repo.require("Gtk", "4.0");

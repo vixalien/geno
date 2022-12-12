@@ -37,7 +37,7 @@ export class FunctionInfo extends CallableInfo {
 
   /* invoke_error_quark */
 
-  auto_invoke(
+  fn_auto_invoke(
     in_args: (string | number | bigint | boolean)[],
     out_arg_n = 0,
   ) {
@@ -64,7 +64,7 @@ export class FunctionInfo extends CallableInfo {
       in_args_ptr[i] = BigInt(arg.v_pointer);
     }
 
-    const result = this.invoke(in_args_ptr, out_args_ptr);
+    const result = this.fn_invoke(in_args_ptr, out_args_ptr);
 
     return {
       result,
@@ -74,7 +74,7 @@ export class FunctionInfo extends CallableInfo {
     };
   }
 
-  invoke(
+  fn_invoke(
     in_args: BigInt64Array,
     out_args: BigInt64Array | 0 = 0,
   ) {

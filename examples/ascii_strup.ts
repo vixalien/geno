@@ -1,7 +1,12 @@
-import { gi, util } from "../mod.ts";
-
-const { Repository, Argument, FunctionInfo, closeAll } = gi;
-const { reserve, strToPointer, pointerToStr } = util;
+import {
+  Argument,
+  closeAll,
+  FunctionInfo,
+  pointerToStr,
+  Repository,
+  reserve,
+  strToPointer,
+} from "../mod.ts";
 
 const repo = Repository.get_default();
 repo.require("GLib", "2.0");
@@ -18,11 +23,11 @@ const arg2 = Argument.fromPointer(reserve());
 arg2.v_pointer = 5;
 args[1] = BigInt(arg2.v_pointer);
 
-const ret = function_info.invoke(args);
+const ret = function_info.fn_invoke(args);
 
 console.log("returned", pointerToStr(ret.v_pointer), "bytes");
 
-const ret2 = function_info.auto_invoke(["hello", 5]);
+const ret2 = function_info.fn_auto_invoke(["hello", 5]);
 
 console.log("returned", pointerToStr(ret2.result.v_pointer), "bytes");
 
