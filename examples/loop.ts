@@ -1,5 +1,6 @@
 import { Repository } from "../repository.ts";
 import { closeAll } from "../lib/close.ts";
+import { InfoType } from "../info/base.ts";
 
 const repo = Repository.get_default();
 repo.require("Gtk", "4.0");
@@ -16,9 +17,10 @@ console.log("type", button.type);
 console.log("to string", button.toString());
 console.log("deprecated", button.is_deprecated());
 
-// for (let i = 0; i < n_infos; i++) {
-//   const info = repo.get_info("Gtk", i)?.name
-//   console.log(`${i + 1}th info:`, repo.get_info("Gtk", i)?.name);
-// }
+for (let i = 0; i < n_infos; i++) {
+  const info = repo.get_info("Gtk", i);
+  if (!info) continue;
+  console.log(`${i + 1}th info:`, info.name, InfoType[info.type]);
+}
 
 await closeAll();
